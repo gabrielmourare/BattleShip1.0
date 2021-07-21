@@ -1,0 +1,88 @@
+body {
+   text-align: center;
+   background-color: black;
+   font-family: 'Big Shoulders Stencil Display', cursive;
+   font-size: 60px;
+    
+}
+
+.hit {
+    background: url("images/ship.png");
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: greenyellow;
+    border-collapse: collapse;
+    border-style: solid;
+    width: 128px;
+    height: 128px; 
+    text-align: center;
+    
+}
+
+.miss {
+    background: url("images/sea.png");
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: greenyellow;
+    border-collapse: collapse;
+    border-style: solid;
+    width: 128px;
+    height: 128px; 
+    text-align: center;
+}
+
+.tiles {
+    border: greenyellow;
+    border-collapse: collapse;
+    border-style: solid;
+    width: 128px;
+    height: 128px; 
+    text-align: center;
+}
+
+table, h1 {
+    width: auto;
+    display: inline-block;
+    color: greenyellow;
+}
+
+h3 {
+    margin-top: 10px;
+    width: auto;
+    display: inline-block;
+    color: greenyellow;
+}
+
+.fire:hover{
+    background-color: darkgreen;
+}
+
+.fire:active{
+    background-color: lightgreen;
+}
+
+.fire {
+    font-family: 'Big Shoulders Stencil Display', cursive;
+    font-size: 60px;
+    border: solid;
+    border-style:solid;
+    border-color: darkgreen;
+    background-color:green;
+    height: 120px;
+    width: 120px;
+    
+}
+
+.field {
+    font-family: 'Big Shoulders Stencil Display', cursive;
+    font-size: 60px;
+    background-color: greenyellow;
+    height: 120px;
+    width: 120px;
+
+}
+
