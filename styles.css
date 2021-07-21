@@ -87,3 +87,11 @@ h3 {
 
 }
 
+footer {
+   text-transform: uppercase;
+    font-family: 'Big Shoulders Stencil Display', cursive;
+    font-size: 15px;
+    background-color: greenyellow;
+    height: 120px;
+    width: 120px;
+}
