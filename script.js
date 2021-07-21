@@ -52,6 +52,12 @@ var model = {
             var index = ship.locations.indexOf(guess);
                
             if (index >= 0){
+                if(ship.hits[index] === "hit"){
+                    alert("YOU'VE ALREADY HIT THIS PLACE!");
+                    return false;
+                }
+
+
                 ship.hits[index] = "hit";
                 view.displayHit(guess);
                 view.displayMessage("HIT!");
@@ -144,15 +150,24 @@ var model = {
 
 var controller = {
     processGuess: function(guess){
-        var row = guess.substr(0,1);
+        var row = guess.substr(0,1).toUpperCase();
+        console.log(row);
+        
         var col = guess.substr(1,2);
         var alphabet = ["A", "B", "C", "D", "E", "F"];
         var convertedRow;
         var convertedString;
-        convertedRow = alphabet.indexOf(row);
-        convertedString = convertedRow +""+ col;
-        console.log(convertedString);
-        model.fire(convertedString);
+        
+        if(alphabet.indexOf(row) >= 0 && col < 6) {
+            convertedRow = alphabet.indexOf(row);
+            convertedString = convertedRow +""+ col;
+            console.log(convertedString);
+            model.fire(convertedString);
+            
+        } else {
+            alert("Please, enter a valid guess.")
+        }
+            
 
     }
     
@@ -167,7 +182,13 @@ function init() {
     
     fireButton.addEventListener('click', function(){
         var currentGuess = field.value;
-        controller.processGuess(currentGuess);
+        
+        if(currentGuess.length != 2) {
+            alert("Please, enter a valid guess!!");
+        } else {
+            controller.processGuess(currentGuess);
+        }
+        
     })
     
     if(!model.finishedGame){
