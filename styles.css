@@ -7,7 +7,7 @@ body {
 }
 
 .hit {
-    background: url("./ship.png");
+    background: url("ship.png");
     margin-left: auto;
     margin-right: auto;
     background-repeat: no-repeat;
@@ -22,7 +22,7 @@ body {
 }
 
 .miss {
-    background: url("./sea.png");
+    background: url("sea.png");
     margin-left: auto;
     margin-right: auto;
     background-repeat: no-repeat;
