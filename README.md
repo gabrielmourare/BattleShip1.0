@@ -11,8 +11,8 @@ Simple Battleship Game, made with JavaScript, HTML and CSS to study about web de
 
 
 Next Steps:
-* Create a backend app to practice NodeJS.
-*
+* Create a backend app to practice NodeJS;
+* Try to use Database concepts to improve the game.
 
 
 CREDITS:
