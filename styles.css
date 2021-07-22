@@ -51,7 +51,7 @@ table, h1 {
     color: greenyellow;
     font-size: smaller;
     margin-bottom: 0%;
-    margin-right: 10%;
+    margin-right: auto;
 }
 
 h3,p {
@@ -109,3 +109,8 @@ h3,p {
     width: 70px;
 
 }
+
+.fireField {
+    margin: auto auto auto;
+}
+
