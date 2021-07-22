@@ -7,7 +7,7 @@ body {
 }
 
 .hit {
-    background: url("ship.png");
+    background: url("images/ship.png");
     margin-left: auto;
     margin-right: auto;
     background-repeat: no-repeat;
@@ -22,7 +22,7 @@ body {
 }
 
 .miss {
-    background: url("sea.png");
+    background: url("images/sea.png");
     margin-left: auto;
     margin-right: auto;
     background-repeat: no-repeat;
@@ -42,6 +42,7 @@ body {
     width: 90px;
     height: 90px; 
     text-align: center;
+    margin: auto auto auto;
 }
 
 table, h1 {
@@ -53,9 +54,9 @@ table, h1 {
     margin-right: 10%;
 }
 
-h3 {
+h3,p {
     margin-top: 10px;
-    margin: -10px;
+    margin: -5px;
     width: auto;
     display: inline-block;
     color: greenyellow;
@@ -96,4 +97,15 @@ h3 {
 .grid-container{
     display: grid;
     grid-template-columns: auto auto auto;
+}
+
+
+.score {
+    text-transform: uppercase;
+    font-family: 'Big Shoulders Stencil Display', cursive;
+    font-size: 50px;
+    background-color: greenyellow;
+    height: 25px;
+    width: 70px;
+
 }

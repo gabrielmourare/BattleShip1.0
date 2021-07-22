@@ -16,6 +16,26 @@ var view = {
         var tile = document.getElementById(location); // captures the HTML element which represents the tile;
         tile.setAttribute("class", "miss"); // sets the attribute class as hit(CSS);
 
+    },
+
+    displayGuesses: function (shots) {
+        var shotsField = document.getElementById("shots");
+        shotsField.innerText = shots;
+
+    },
+
+    displayTotalHits: function (hits) {
+        var hitsField = document.getElementById("hits");
+        hitsField.innerText = hits;
+    },
+    displayTotalMisses: function (misses) {
+        var missesField = document.getElementById("misses");
+        missesField.innerText = misses;
+    },
+
+    displayTotalShipsSunk: function (shipsSunk) {
+        var shipsSunkField = document.getElementById("shipsSunk");
+        shipsSunkField.innerText = shipsSunk;
     }
 
 };
@@ -30,66 +50,86 @@ var model = {
     shipLength: 3,
     shipsSunk: 0,
     guesses: 0,
+    totalHits: 0,
+    totalMisses: 0,
     finishedGame: false,
     ships: [{
-            locations: [0,0,0],
-            hits: ["","",""]
+            locations: [0, 0, 0],
+            hits: ["", "", ""]
         },
         {
-            locations: [0,0,0],
-            hits: ["","",""]
+            locations: [0, 0, 0],
+            hits: ["", "", ""]
         },
         {
-            locations: [0,0,0],
-            hits: ["","",""]
+            locations: [0, 0, 0],
+            hits: ["", "", ""]
         }
     ],
 
-    fire: function (guess) {    // the fire function, receives the player's guess as parameter
+    fire: function (guess) { // the fire function, receives the player's guess as parameter
         this.guesses++;
+
+
         for (var i = 0; i < this.numShips; i++) {
             var ship = this.ships[i];
             var index = ship.locations.indexOf(guess);
-               
-            if (index >= 0){
-                if(ship.hits[index] === "hit"){
+
+            if (index >= 0) {
+                if (ship.hits[index] === "hit") {
                     alert("YOU'VE ALREADY HIT THIS PLACE!");
                     return false;
                 }
 
 
+
                 ship.hits[index] = "hit";
                 view.displayHit(guess);
                 view.displayMessage("HIT!");
-                if(this.isSunk(ship)){
+                this.totalHits++;
+                view.displayTotalHits(this.totalHits);
+
+
+                if (this.isSunk(ship)) {
+
                     view.displayMessage("YOU SANK 1 BATTLESHIP!")
                     this.shipsSunk++;
-                    if(this.shipsSunk >= 3){
-                        view.displayMessage("YOU SANK ALL BATTLESHIPS IN " + this.guesses + " GUESSES!");
-                        var startNewGame = confirm("Would you like to play again?")
-                        if(startNewGame){
+                    view.displayTotalShipsSunk(this.shipsSunk);
+                }
+                console.log(ship.hits);
+                if (this.shipsSunk > 2) {
+                    view.displayMessage("YOU SANK ALL BATTLESHIPS IN " + this.guesses + " GUESSES!");
+                    setTimeout(function() {
+                        if (confirm("Would you like to play again?")) {
                             this.guesses = 0;
                             this.shipsSunk = 0;
                             document.location.reload(true);
                         }
-                        
-                    }
+                    }, 2500)
+                    
+                   
                 }
-                console.log(ship.hits);
-            
+
                 return true;
-            } 
-        
+            }
+
         }
+
+
+
         view.displayMiss(guess);
         view.displayMessage("MISS!");
+        this.totalMisses++;
+        view.displayGuesses(this.guesses);
+        view.displayTotalMisses(this.totalMisses);
+
         return false;
 
     },
 
     isSunk: function (ship) { // checks if the boat is sunk
-        for (var i =0 ; i < this.shipLength; i++) {
-            if (ship.hits[i] !== "hit"){
+        for (var i = 0; i < this.shipLength; i++) {
+            if (ship.hits[i] !== "hit") {
                 return false;
             }
         }
@@ -97,8 +137,8 @@ var model = {
 
     },
 
-    generateShip: function(){ // generates the locations for each element (ship) in the ships object;
-        var direction = Math.floor(Math.random()*2);
+    generateShip: function () { // generates the locations for each element (ship) in the ships object;
+        var direction = Math.floor(Math.random() * 2);
         var row;
         var col;
         var newLocations = [];
@@ -106,71 +146,71 @@ var model = {
             row = Math.floor(Math.random() * this.boardSize);
             col = Math.floor(Math.random() * (this.boardSize - this.shipLength));
 
-           
+
         } else {
-            row = Math.floor(Math.random()* (this.boardSize - this.shipLength));
-            col = Math.floor(Math.random()* this.boardSize);
-            
+            row = Math.floor(Math.random() * (this.boardSize - this.shipLength));
+            col = Math.floor(Math.random() * this.boardSize);
+
         }
         for (var i = 0; i < this.shipLength; i++) {
             if (direction === 1) {
-                newLocations.push(row + "" + (col+i));
-                
+                newLocations.push(row + "" + (col + i));
+
             } else {
-                newLocations.push((row+i) + "" + col);
-                
+                newLocations.push((row + i) + "" + col);
+
             }
         }
         return newLocations;
     },
 
-    generateShipLocations: function() { // generates each element(ship) in the ships object;
-          var newlocations;
-          for (var i = 0 ; i < this.numShips; i++) {
-              do {
-                  newlocations = this.generateShip();
-              } while (this.collision(newlocations));
-              this.ships[i].locations = newlocations;
-          }
+    generateShipLocations: function () { // generates each element(ship) in the ships object;
+        var newlocations;
+        for (var i = 0; i < this.numShips; i++) {
+            do {
+                newlocations = this.generateShip();
+            } while (this.collision(newlocations));
+            this.ships[i].locations = newlocations;
+        }
     },
 
-    collision: function(localizations) { // checks for collision (to avoid that a boat is generated above others)
-     for(var i = 0; i< this.numShips; i++) {
-         var ship = model.ships[i];
-         for(var j = 0; j < localizations.length; j++){
-             if(ship.locations.indexOf(localizations[j]) >= 0){
-                 return true;
-             }
-         }
-     }
-     return false;
-}
+    collision: function (localizations) { // checks for collision (to avoid that a boat is generated above others)
+        for (var i = 0; i < this.numShips; i++) {
+            var ship = model.ships[i];
+            for (var j = 0; j < localizations.length; j++) {
+                if (ship.locations.indexOf(localizations[j]) >= 0) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 };
 
 var controller = {
-    processGuess: function(guess){
-        var row = guess.substr(0,1).toUpperCase();
+    processGuess: function (guess) {
+        var row = guess.substr(0, 1).toUpperCase();
         console.log(row);
-        
-        var col = guess.substr(1,2);
+
+        var col = guess.substr(1, 2);
         var alphabet = ["A", "B", "C", "D", "E", "F"];
         var convertedRow;
         var convertedString;
-        
-        if(alphabet.indexOf(row) >= 0 && col < 6) {
+
+        if (alphabet.indexOf(row) >= 0 && col < 6) {
             convertedRow = alphabet.indexOf(row);
-            convertedString = convertedRow +""+ col;
+            convertedString = convertedRow + "" + col;
             console.log(convertedString);
             model.fire(convertedString);
-            
+
         } else {
             alert("Please, enter a valid guess.")
         }
-            
+
 
     }
-    
+
 
 
 };
@@ -179,21 +219,21 @@ function init() {
     model.finishedGame = false;
     var field = document.getElementById("field");
     var fireButton = document.getElementById("fire");
-    
-    fireButton.addEventListener('click', function(){
+
+    fireButton.addEventListener('click', function () {
         var currentGuess = field.value;
-        
-        if(currentGuess.length != 2) {
+
+        if (currentGuess.length != 2) {
             alert("Please, enter a valid guess!!");
         } else {
             controller.processGuess(currentGuess);
         }
-        
+
     })
-    
-    if(!model.finishedGame){
+
+    if (!model.finishedGame) {
         model.generateShipLocations();
     }
-    
+
 
 }
