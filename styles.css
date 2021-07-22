@@ -7,7 +7,7 @@ body {
 }
 
 .hit {
-    background: url("ship.png");
+    background: url("images/ship.png");
     margin-left: auto;
     margin-right: auto;
     background-repeat: no-repeat;
@@ -15,14 +15,14 @@ body {
     border: greenyellow;
     border-collapse: collapse;
     border-style: solid;
-    width: 128px;
-    height: 128px; 
+    width: 50px;
+    height: 50px; 
     text-align: center;
     
 }
 
 .miss {
-    background: url("sea.png");
+    background: url("images/sea.png");
     margin-left: auto;
     margin-right: auto;
     background-repeat: no-repeat;
@@ -30,8 +30,8 @@ body {
     border: greenyellow;
     border-collapse: collapse;
     border-style: solid;
-    width: 128px;
-    height: 128px; 
+    width: 50px;
+    height: 50px; 
     text-align: center;
 }
 
@@ -39,8 +39,8 @@ body {
     border: greenyellow;
     border-collapse: collapse;
     border-style: solid;
-    width: 128px;
-    height: 128px; 
+    width: 90px;
+    height: 90px; 
     text-align: center;
 }
 
@@ -48,13 +48,19 @@ table, h1 {
     width: auto;
     display: inline-block;
     color: greenyellow;
+    font-size: smaller;
+    margin-bottom: 0%;
+    margin-right: 10%;
 }
 
 h3 {
     margin-top: 10px;
+    margin: -10px;
     width: auto;
     display: inline-block;
     color: greenyellow;
+    font-size: 25px;
+    margin-bottom: 0%;
 }
 
 .fire:hover{
@@ -67,12 +73,12 @@ h3 {
 
 .fire {
     font-family: 'Big Shoulders Stencil Display', cursive;
-    font-size: 60px;
+    font-size: 50px;
     border: solid;
     border-style:solid;
     border-color: darkgreen;
     background-color:green;
-    height: 120px;
+    height: 70px;
     width: 120px;
     
 }
@@ -80,18 +86,14 @@ h3 {
 .field {
     text-transform: uppercase;
     font-family: 'Big Shoulders Stencil Display', cursive;
-    font-size: 60px;
+    font-size: 50px;
     background-color: greenyellow;
-    height: 120px;
+    height: 70px;
     width: 120px;
 
 }
 
-footer {
-   text-transform: uppercase;
-    font-family: 'Big Shoulders Stencil Display', cursive;
-    font-size: 15px;
-    background-color: greenyellow;
-    height: 120px;
-    width: 120px;
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
 }

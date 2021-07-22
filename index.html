@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,95 +8,114 @@
     <title>Battleship</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@900&display=swap"
+        rel="stylesheet">
 </head>
-<body onload="init()">  
-    <div>
-        <h1>BATTLESHIP</h1>
+
+<body onload="init()">
+
+    <div class="grid-container">
+
+      <div class="grid-item">
+
         
+
+        <h1>BATTLESHIP</h1>
+
+
+
+        <div class="grid-item">
+            <h3 id="messageArea"> ATTACK</h3>
+        </div>
+        
+
+
+
+
+
+      </div>
+      <div class="grid-item">
+
+
+      
+        <table>
+
+            <tr>
+                <td></td>
+                <td id="1">0</td>
+                <td id="2">1</td>
+                <td id="3">2</td>
+                <td id="4">3</td>
+                <td id="5">4</td>
+                <td id="6">5</td>
+            </tr>
+            <tr>
+                <td id="a">A</td>
+                <td class="tiles" id="00"></td>
+                <td class="tiles" id="01"></td>
+                <td class="tiles" id="02"></td>
+                <td class="tiles" id="03"></td>
+                <td class="tiles" id="04"></td>
+                <td class="tiles" id="05"></td>
+            </tr>
+            <tr>
+                <td id="b">B</td>
+                <td class="tiles" id="10"></td>
+                <td class="tiles" id="11"></td>
+                <td class="tiles" id="12"></td>
+                <td class="tiles" id="13"></td>
+                <td class="tiles" id="14"></td>
+                <td class="tiles" id="15"></td>
+            </tr>
+            <tr>
+                <td id="c">C</td>
+                <td class="tiles" id="20"></td>
+                <td class="tiles" id="21"></td>
+                <td class="tiles" id="22"></td>
+                <td class="tiles" id="23"></td>
+                <td class="tiles" id="24"></td>
+                <td class="tiles" id="25"></td>
+            </tr>
+            <tr>
+                <td id="d">D</td>
+                <td class="tiles" id="30"></td>
+                <td class="tiles" id="31"></td>
+                <td class="tiles" id="32"></td>
+                <td class="tiles" id="33"></td>
+                <td class="tiles" id="34"></td>
+                <td class="tiles" id="35"></td>
+            </tr>
+            <tr>
+                <td id="e">E</td>
+                <td class="tiles" id="40"></td>
+                <td class="tiles" id="41"></td>
+                <td class="tiles" id="42"></td>
+                <td class="tiles" id="43"></td>
+                <td class="tiles" id="44"></td>
+                <td class="tiles" id="45"></td>
+            </tr>
+            <tr>
+                <td id="f">F</td>
+                <td class="tiles" id="50"></td>
+                <td class="tiles" id="51"></td>
+                <td class="tiles" id="52"></td>
+                <td class="tiles" id="53"></td>
+                <td class="tiles" id="54"></td>
+                <td class="tiles" id="55"></td>
+            </tr>
+
+
+        </table>
+        </div>
+
+        <div class="grid-item">
+        <input type="text" class="field" id="field">
+        <input class="fire" type="button" value="FIRE!" id="fire">
+        </div>
+     
+
     </div>
-    
-    <h3 id="messageArea">ATTACK</h3>
-    <div class="container">
 
-
-  
-    <table>            
-
-        <tr><td></td>
-            <td id="1">0</td>
-            <td id="2">1</td>
-            <td id="3">2</td>
-            <td id="4">3</td>
-            <td id="5">4</td>
-            <td id="6">5</td>
-        </tr>
-        <tr>   
-            <td id="a">A</td> 
-            <td class="tiles" id="00"></td>
-            <td class="tiles" id="01"></td>
-            <td class="tiles" id="02"></td>
-            <td class="tiles" id="03"></td>
-            <td class="tiles" id="04"></td>
-            <td class="tiles" id="05"></td>
-        </tr>
-        <tr>
-            <td id="b">B</td>
-            <td class="tiles" id="10"></td>
-            <td class="tiles" id="11"></td>
-            <td class="tiles" id="12"></td>
-            <td class="tiles" id="13"></td>
-            <td class="tiles" id="14"></td>
-            <td class="tiles" id="15"></td>
-        </tr>
-        <tr>
-            <td id="c">C</td>
-            <td class="tiles" id="20"></td>
-            <td class="tiles" id="21"></td>
-            <td class="tiles" id="22"></td>
-            <td class="tiles" id="23"></td>
-            <td class="tiles" id="24"></td>
-            <td class="tiles" id="25"></td>
-        </tr>
-        <tr>
-            <td id="d">D</td>
-            <td class="tiles" id="30"></td>
-            <td class="tiles" id="31"></td>
-            <td class="tiles" id="32"></td>
-            <td class="tiles" id="33"></td>
-            <td class="tiles" id="34"></td>
-            <td class="tiles" id="35"></td>
-        </tr>
-        <tr>
-            <td id="e">E</td>
-            <td class="tiles" id="40"></td>
-            <td class="tiles" id="41"></td>
-            <td class="tiles" id="42"></td>
-            <td class="tiles" id="43"></td>
-            <td class="tiles" id="44"></td>
-            <td class="tiles" id="45"></td>
-        </tr>
-        <tr>
-            <td id="f">F</td>
-            <td class="tiles" id="50"></td>
-            <td class="tiles" id="51"></td>
-            <td class="tiles" id="52"></td>
-            <td class="tiles" id="53"></td>
-            <td class="tiles" id="54"></td>
-            <td class="tiles" id="55"></td>
-        </tr>
-
-
-    </table>
-</div>
-    <input type="text" class="field" id="field">
-    <input class="fire" type="button" value="FIRE!" id="fire">
-    
-<footer>
-<div>
-    Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-</div>
-</footer>
     <script src="script.js"></script>
 </body>
 
