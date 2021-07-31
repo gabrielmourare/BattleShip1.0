@@ -1,0 +1,116 @@
+body {
+   text-align: center;
+   background-color: black;
+   font-family: 'Big Shoulders Stencil Display', cursive;
+   font-size: 60px;
+    
+}
+
+.hit {
+    background: url("images/ship.png");
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: greenyellow;
+    border-collapse: collapse;
+    border-style: solid;
+    width: 50px;
+    height: 50px; 
+    text-align: center;
+    
+}
+
+.miss {
+    background: url("images/sea.png");
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: greenyellow;
+    border-collapse: collapse;
+    border-style: solid;
+    width: 50px;
+    height: 50px; 
+    text-align: center;
+}
+
+.tiles {
+    border: greenyellow;
+    border-collapse: collapse;
+    border-style: solid;
+    width: 90px;
+    height: 90px; 
+    text-align: center;
+    margin: auto auto auto;
+}
+
+table, h1 {
+    width: auto;
+    display: inline-block;
+    color: greenyellow;
+    font-size: smaller;
+    margin-bottom: 0%;
+    margin-right: auto;
+}
+
+h3,p {
+    margin-top: 10px;
+    margin: -5px;
+    width: auto;
+    display: inline-block;
+    color: greenyellow;
+    font-size: 25px;
+    margin-bottom: 0%;
+}
+
+.fire:hover{
+    background-color: darkgreen;
+}
+
+.fire:active{
+    background-color: lightgreen;
+}
+
+.fire {
+    font-family: 'Big Shoulders Stencil Display', cursive;
+    font-size: 50px;
+    border: solid;
+    border-style:solid;
+    border-color: darkgreen;
+    background-color:green;
+    height: 70px;
+    width: 120px;
+    
+}
+
+.field {
+    text-transform: uppercase;
+    font-family: 'Big Shoulders Stencil Display', cursive;
+    font-size: 50px;
+    background-color: greenyellow;
+    height: 70px;
+    width: 120px;
+
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+
+.score {
+    text-transform: uppercase;
+    font-family: 'Big Shoulders Stencil Display', cursive;
+    font-size: 50px;
+    background-color: greenyellow;
+    height: 25px;
+    width: 70px;
+
+}
+
+.fireField {
+    margin: auto auto auto;
+}
+

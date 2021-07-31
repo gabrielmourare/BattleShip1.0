@@ -1,0 +1,25 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "simple battleship game in html css and js",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IdoLongbeard/BattleShip1.0.git"
+  },
+  "keywords": [
+    "battleship"
+  ],
+  "author": "IdoLongbeard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IdoLongbeard/BattleShip1.0/issues"
+  },
+  "homepage": "https://github.com/IdoLongbeard/BattleShip1.0#readme",
+  "dependencies": {
+    "bootstrap": "^5.0.2"
+  }
+}
